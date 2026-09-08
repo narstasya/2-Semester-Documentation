@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation_SoSe</title>
+    <title>Documentation 2 Semester 2026</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,31 +19,25 @@
 
     </main>
 
-    <section class="page-content">
-    <!-- 🔑 НОВИЙ СПІЛЬНИЙ ШАР ДЛЯ ЗЛИТТЯ КУЛЬ -->
-    <div class="gooey-wrapper">
-        <a href="/internet_walk.html"><button>Internet Walk</button></a>
-        <a href="/research.html"><button>Recherchetagebuch zum Audiowalk</button></a>
-        <a href="/designprocess.html"><button>Designprozess</button></a>
-        <a href="../2 new hope/index.html"><button>Audiowalk</button></a>
-        <a href="/index.html"><button>Go back</button></a>
-    </div>
-</section>
+    <div class="gooey-stage">
+  <!-- Шар 1: рідкі кульки, які клеяться -->
+  <div class="gooey-blobs">
+    <div class="blob" data-index="1"></div>
+    <div class="blob" data-index="2"></div>
+    <div class="blob" data-index="3"></div>
+    <div class="blob" data-index="4"></div>
+    <div class="blob blob--red" data-index="5"></div>
+  </div>
 
-
-  <!-- Стандартизований SVG-фільтр ртуті для кольорових об'єктів -->
-<svg style="position: absolute; width: 0; height: 0; pointer-events: none;" width="0" height="0">
-  <defs>
-    <filter id="gooey">
-      <!-- 1. Розмиваємо межі куль -->
-      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-      <!-- 2. Склеюємо альфа-канал на перетині -->
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="goo" />
-      <!-- 3. Поєднуємо рідку масу з чітким відображенням кнопок -->
-      <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-    </filter>
-  </defs>
-</svg>
+  <!-- Шар 2: реальні кнопки з текстом, без фільтра -->
+  <div class="gooey-links">
+    <a href="/internet_walk.html" data-index="1"><span>Internet Walk</span></a>
+    <a href="/research.html" data-index="2"><span>Recherchetagebuch zum Audiowalk</span></a>
+    <a href="/designprocess.html" data-index="3"><span>Designprozess</span></a>
+    <a href="../2 new hope/index.html" data-index="4"><span>Audiowalk</span></a>
+    <a href="/index.html" data-index="5" class="link--red"><span>Go back</span></a>
+  </div>
+</div>
 
 
 
