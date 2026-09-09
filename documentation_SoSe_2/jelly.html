@@ -69,7 +69,7 @@
         }
         .back-home-btn:hover {
             transform: translateY(-2px);
-            background-color: #7C4C4C;
+            background-color: #4c707c;
             color: white;
         }
 
@@ -136,14 +136,9 @@
         }
 
         .cell-bottom-left {
-            padding: 15px;           /* Зменшуємо педінг, щоб текст підходив ближче до ліній */
-            align-items: stretch;    /* Розтягує контент на всю ширину комірки */
-            text-align: justify;     /* Робить текст красивим рівним блоком від краю до краю (або зміни на left) */
-        }
-
-        .cell-bottom-left p {
-            max-width: 100% !important; 
-            width: 100%;
+            padding-right: 15px;           
+            align-items: flex-end;    
+            text-align: right;     
         }
 
         .cell-bottom-right {
@@ -254,7 +249,6 @@
             box-sizing: border-box;
         }
 
-        /* Акуратний тонкий скроллбар */
         .popup-slider-container::-webkit-scrollbar { height: 15px; }
         .popup-slider-container::-webkit-scrollbar-track { background: transparent; }
         .popup-slider-container::-webkit-scrollbar-thumb { background: rgba(155, 214, 223, 0.3);  }
@@ -267,7 +261,6 @@
             margin-top: 12px;
             letter-spacing: 0.5px;
         }
-
 
     </style>
 
@@ -290,33 +283,33 @@
     <div class="content-grid">
         <!-- 1. top left block -->
         <div class="grid-cell cell-top-left">
-            <h3 class="clickable-trigger" data-gallery="jelly">Jelly Workshop & Poster </h3>
-            <p>During our first meeting, we participated in a workshop led by Lila Steinkampf, with the main goal of crafting jellies. Although I was absent for the initial gathering and cannot comment on the full experience, my classmate and I later designed a beautiful poster for this workshop.</p>
+            <h3 class="clickable-trigger" data-gallery="jelly">01. Jelly Workshop & Poster </h3>
+            <p>During our first meeting, we participated in a workshop led by Lila Steinkampf, with the main goal of crafting jellies. Although I was absent for the initial gathering and cannot comment on the full experience, my classmate, Luisa Lindzinski (who's pictures you can see in this pop-up), and I later designed a beautiful poster for this workshop.</p>
         </div>
 
         <!-- 2. Upper Right  -->
         <div class="grid-cell cell-top-right">
-            <h3 class="clickable-trigger" data-gallery="p2">02</h3>
+            <h3 class="clickable-trigger" data-gallery="p2">02. Design Process</h3>
             <p>We came up with the creative concept of using real objects and environments as our background. We specifically wanted a raw metallic steel texture, and the surface near the sink by the VK room turned out to be absolutely perfect for that. For the main visuals, we actually prepared a real pot of jelly, left it to set overnight in the fridge, and photographed it the next day in the photo studio. The process was incredibly fun and experimental, and we strongly believe that spending a bit more time than anticipated to capture the perfect texture was completely worth it. 
             </p>
         </div>
 
         <!-- 3. Lower Left  -->
         <div class="grid-cell cell-bottom-left">
-            <h3 class="clickable-trigger" data-gallery="p3">03</h3>
-            <p>Because we had to submit the final piece under a tight deadline, we initially lacked the time to deeply experiment with typography or arrange the compositions more dynamically. However, after seeing the printed version, I decided to revisit the project independently to find that ideal balance between text legibility, color harmony, and overall structural composition.</p>
+            <h3 class="clickable-trigger" data-gallery="p3">03. Ready to print!</h3>
+            <p>Because we had to submit the final piece under a tight deadline, we initially lacked the time to deeply experiment with typography or arrange the compositions more dynamically. But this is our end poster being ready to be printed! </p>
         </div>
 
         <!-- 4. Lower Right  -->
         <div class="grid-cell cell-bottom-right">
-            <h3 class="clickable-trigger" data-gallery="p4">04 Results</h3>
-            <p></p>
+            <h3 class="clickable-trigger" data-gallery="p4">04. My version of poster</h3>
+            <p>However, after seeing the printed version, I decided to revisit the project independently to find that ideal balance between text legibility, color harmony, and overall structural composition.</p>
         </div>
     </div>
 
     <div id="galleryPopup" class="popup-overlay">
         <div class="popup-box">
-            <button class="popup-close-btn" onclick="closePopup()">x</button>
+            <button class="popup-close-btn" onclick="closePopup()"><img src="/img/x.png" alt="Close" class="close-icon-img"></button>
             <h4 id="popupTitle">Gallery</h4>
             <div id="popupSlider" class="popup-slider-container">
                 <!-- here js will put pics-->
@@ -334,20 +327,20 @@
         const galleries = {
             jelly: {
                 title: "Jelly Workshop Gallery",
-                images: ["img_workshop/1.jpeg", "img_workshop/2.jpeg", "img_workshop/3.jpeg", "img_workshop/4.jpeg", "img_workshop/5.jpeg", "img_workshop/6.jpeg", "img_workshop/7.jpeg", "img_workshop/8.jpeg", "img_workshop/9.jpeg",]
+                images: ["/img_results_jellies/1.jpeg", "/img_results_jellies/2.jpeg", "/img_results_jellies/3.jpeg", "/img_results_jellies/4.jpeg", "/img_results_jellies/5.jpeg", "/img_results_jellies/6.jpeg", "/img_results_jellies/7.jpeg", "/img_results_jellies/8.jpeg", "/img_results_jellies/9.jpeg",]
             },
             p2: {
                 title: "Design Process",
-                images: ["img_workshop/1.JPG", "img_workshop/2.JPG", "img_workshop/3.JPG", "img_workshop/4.JPG", "img_workshop/5.JPG", "img_workshop/6.JPG"]
+                images: ["/img_workshop/1.JPG", "/img_workshop/2.JPG", "/img_workshop/3.JPG", "/img_workshop/4.JPG", "/img_workshop/7.JPG", "/img_workshop/5.JPG", "/img_workshop/6.JPG"]
             },
             p3: {
                 title: "Final result",
-                images: ["images_perspectives/perspectives-art1-4.png", "images_perspectives/perspectives-art1-5.png"]
+                images: ["/img_3/1.jpg"]
             },
 
             p4: {
                 title: "My version",
-                images: ["images_perspectives/perspectives-art1-4.png", "images_perspectives/perspectives-art1-5.png"]
+                images: ["/img_4/1.png"]
             }
 
         };
