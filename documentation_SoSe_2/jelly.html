@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden !important; /* scroll turn off */
+            box-sizing: border-box;
+            cursor: url('/img/2_jelly.png') 16 16, auto;
+        }
+
+        body:active, .back-home-btn:active {
+            cursor: url('/img/2_jelly_click.png') 16 16, auto;
+        }
+
+        /* 2. ГОЛОВНИЙ ЗОВНІШНІЙ КОНТУР (ВІДСТУП 30px ВІД КРАЇВ ЕКРАНА) */
+        .wireframe-contour {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 10px solid #eeb6ff; /* Твоя фірмова бруталістська шоколадна рамка */
+            box-sizing: border-box !important;
+            pointer-events: none; /* Щоб рамка не заважала клікати по кнопках */
+            z-index: 10;
+        }
+
+        /* 3. ВЕКТОРНА СІТКА ДЛЯ ІДЕАЛЬНИХ ЦЕНТРОВАНИХ ТА ДІАГОНАЛЬНИХ ЛІНІЙ */
+        .grid-svg {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);  /* Рівно по внутрішньому контуру */
+            height: calc(100% - 40px);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Стиль самих ліній креслення */
+        .grid-svg line {
+            stroke: #eeb6ff;      /* Шоколадний колір для ліній */
+            stroke-width: 10;      /* Тонкі акуратні лінії креслення */
+            shape-rendering: crispEdges;
+        }
+
+        /* 4. КНОПКА BACK (Зберігаємо UX) */
+        .back-home-btn {
+            position: fixed;
+            top: 45px; /* Трохи опустили, щоб вона красиво стала всередині рамки */
+            left: 45px;
+            padding: 0.6rem 1.2rem;
+            background-color: #eeb6ff;
+            color: #4c6b7c;
+            border: 3px solid #4c707c;
+            font-family: "Anybody";
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+            background-color: #7C4C4C;
+            color: white;
+        }
+
+                /* 1. НАЛАШТУВАННЯ ГОЛОВНОЇ СІТКИ (Grid Container) */
+        .content-grid {
+            position: absolute;
+            /* 🔑 Ставимо ті самі 20px відступів, щоб сітка ідеально наклалася на лінії */
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            z-index: 20; /* Контент має бути ПОВЕРХ ліній, щоб клікалися посилання */
+            
+            /* Магія CSS Grid: ділимо екран на 2 однакові колонки і 2 однакові рядки */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            box-sizing: border-box;
+        }
+
+        /* 2. СТИЛЬ ДЛЯ КОЖНОЇ ОКРЕМОЇ КОМІРКИ (КВАДРАНТА) */
+        .grid-cell {
+            padding: 30px; /* Внутрішні відступи для тексту, щоб він не тулився до ліній */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Центрує весь контент усередині комірки по вертикалі */
+            align-items: center;     /* Центрує по горизонталі (якщо хочеш по лівому краю — зміни на flex-start) */
+            text-align: center;
+            font-family: 'Anybody';
+            color: #4c6b7c;          /* Твій колір тексту з кнопки Back */
+        }
+
+        /* Стилі для красивих бруталістських заголовків усередині таблиць */
+        .grid-cell h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .grid-cell p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            max-width: 300px; /* Обмежуємо ширину тексту, щоб він виглядав охайно журнально */
+        }
+
+        .cell-top-left {
+            align-items: flex-end;   /* Примусово зміщує заголовок і параграф до правої межі блоку */
+            text-align: right;       /* Вирівнює кожен рядок тексту по правій стороні */
+            padding-right: 40px;     /* Трохи збільшуємо відступ справа, щоб букви не торкалися товстої синьої лінії */
+        }
+
+        .cell-top-right {
+            padding: 15px;           /* Зменшуємо педінг, щоб текст підходив ближче до ліній */
+            align-items: stretch;    /* Розтягує контент на всю ширину комірки */
+            text-align: justify;     /* Робить текст красивим рівним блоком від краю до краю (або зміни на left) */
+        }
+
+        .cell-top-right p {
+            max-width: 100% !important; 
+            width: 100%;
+        }
+
+        .cell-bottom-left {
+            padding: 15px;           /* Зменшуємо педінг, щоб текст підходив ближче до ліній */
+            align-items: stretch;    /* Розтягує контент на всю ширину комірки */
+            text-align: justify;     /* Робить текст красивим рівним блоком від краю до краю (або зміни на left) */
+        }
+
+        .cell-bottom-left p {
+            max-width: 100% !important; 
+            width: 100%;
+        }
+
+        .cell-bottom-right {
+            justify-content: flex-start; /* Зміщує контент у самий верх свого квадрата */
+            align-items: flex-start;     /* Притискає контент до лівого краю свого квадрата */
+            text-align: left;            /* Вирівнює текст по лівій стороні */
+            padding-top: 25px;           /* Невеличкий акуратний відступ від верхньої синьої лінії */
+            padding-left: 25px;          /* Невеличкий відступ від центральної вертикальної лінії */
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Кнопка повернення -->
+    <a href="index.html" class="back-home-btn">← BACK</a>
+
+    <!-- Зовнішній контур по всьому екрану -->
+    <div class="wireframe-contour"></div>
+
+    <!-- Магія SVG: малює лінії відсотками, тому вони автоматично знайдуть центр на будь-якому моніторі -->
+    <svg class="grid-svg">
+        <!-- Вертикальна центральна лінія (рівно на 50% ширини) -->
+        <line x1="50%" y1="0%" x2="50%" y2="100%" />
+        
+        <!-- Горизонтальна центральна лінія (рівно на 50% висоти) -->
+        <line x1="0%" y1="50%" x2="100%" y2="50%" />
+    </svg>
+
+        <!-- ГОЛОВНА СІТКА ДЛЯ КОНТЕНТУ (Поверх ліній) -->
+    <div class="content-grid">
+        <!-- 1. Верхній лівий квадрант -->
+        <div class="grid-cell cell-top-left">
+            <h3>Jelly Workshop & Poster </h3>
+            <p>During our first meeting, we participated in a workshop led by Lila Steinkampf, with the main goal of crafting jellies. Although I was absent for the initial gathering and cannot comment on the full experience, my classmate and I later designed a beautiful poster for this workshop.</p>
+        </div>
+
+        <!-- 2. Upper Right Quadrant -->
+        <div class="grid-cell cell-top-right">
+            <h3>02</h3>
+            <p>We came up with the creative concept of using real objects and environments as our background. We specifically wanted a raw metallic steel texture, and the surface near the sink by the VK room turned out to be absolutely perfect for that. For the main visuals, we actually prepared a real pot of jelly, left it to set overnight in the fridge, and photographed it the next day in the photo studio. The process was incredibly fun and experimental, and we strongly believe that spending a bit more time than anticipated to capture the perfect texture was completely worth it. 
+            </p>
+        </div>
+
+        <!-- 3. Lower Left Quadrant -->
+        <div class="grid-cell cell-bottom-left">
+            <h3>03</h3>
+            <p>Because we had to submit the final piece under a tight deadline, we initially lacked the time to deeply experiment with typography or arrange the compositions more dynamically. However, after seeing the printed version, I decided to revisit the project independently to find that ideal balance between text legibility, color harmony, and overall structural composition.</p>
+        </div>
+
+        <!-- 4. Lower Right Quadrant -->
+        <div class="grid-cell cell-bottom-right">
+            <h3>04 Results</h3>
+            <p></p>
+        </div>
+    </div>
+
+</body>
+</html>
