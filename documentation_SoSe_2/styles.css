@@ -111,7 +111,9 @@ body {
   transform: translate3d(0,0,0);
 }
 
-.blob--red { background: #ff4757; }
+.blob--red { background: #c72939;}
+
+.blob--yellow { background: #a4bd33;}
 
 /* --- ШАР 2: справжні кнопки, текст, клік --- */
 .gooey-links {
@@ -135,6 +137,14 @@ body {
   padding: 20px;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.gooey-links a.link--yellow {
+  color: #6a921a !important;
+}
+
+.gooey-links a.link--red {
+  color: #dae200 !important;
 }
 
 .gooey-links a:hover { transform: scale(1.08); }
