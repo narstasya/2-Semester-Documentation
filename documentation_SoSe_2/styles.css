@@ -19,30 +19,27 @@
   padding: 0;
 }
 
-
 body {
     margin: 0;
-    background-color: #0d0e15; /* Ваш темний нейро-фон */
+    background-color: #0d0e15;
     color: white;
-    font-family: sans-serif;
+    font-family: "Anybody";
 }
 
-/* Створюємо штучну довжину сайту, щоб було куди скролити */
+/* Artificial page length for scrollin */
 .scroll-container {
     height: 600vh;
     position: relative;
 }
 
-/* Напис "scroll down" — fixed, щоб був видимий поверх сцени до скролу */
 .scroll-hint {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(0.875rem, 2vw, 1.25rem);
-    letter-spacing: 0.35em;
-    text-transform: lowercase;
-    color: rgba(255, 255, 255, 0.55);
+    font-size: 28px;
+    text-align: center;
+    color: rgba(189, 217, 255, 0.787);
     opacity: 1;
     z-index: 100;
     pointer-events: none;
