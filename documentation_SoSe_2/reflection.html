@@ -64,6 +64,51 @@ body:active, .back-home-btn:active {
     color: rgba(250, 246, 246, 0.85); 
     text-align: left;
 }
+
+.visual-diary-grid {
+    display: flex;
+    gap: 16px; 
+    margin: 3.5rem 0;
+    width: 100%;
+    
+    overflow-x: auto;         
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth; 
+    
+    box-sizing: border-box;
+    padding-bottom: 12px;  
+}
+
+.visual-diary-grid img {
+    flex-shrink: 0;            
+    
+    width: 300px;              
+    height: 300px;     
+    
+    object-fit: cover;   
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    scroll-snap-align: center; 
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visual-diary-grid img:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(155, 214, 223, 0.4);
+}
+
+.visual-diary-grid::-webkit-scrollbar {
+    height: 10px;    
+}
+.visual-diary-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+.visual-diary-grid::-webkit-scrollbar-thumb {
+    background: rgba(155, 214, 223, 0.2); 
+}
+.visual-diary-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(155, 214, 223, 0.4); 
+}
 </style>
 </head>
 <body>
@@ -101,7 +146,7 @@ body:active, .back-home-btn:active {
             const img = document.createElement("img");
             
             // Вказуємо шлях до твоїх перейменованих фотографій
-            img.src = `/img_100pics/diary${i}.JPG`; 
+            img.src = `/img_100pics/diary${i}.jpeg`; 
             img.alt = `Semester memory ${i}`;
             img.loading = "lazy"; // картинки завантажуватимуться лише при скролі, щоб сайт не лагав
             
