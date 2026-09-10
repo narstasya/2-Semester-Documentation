@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; 
+    font-family: "Anybody";
+    color: #faf6f6;
+    overflow-x: hidden;
+    cursor: url('/img/6_reflection.png') 16 16, auto; 
+}
+
+body:active, .back-home-btn:active {
+    cursor: url('/img/6_reflection_click.png') 16 16, auto;
+}
+
+.back-home-btn {
+    position: fixed;
+    top: 30px;
+    left: 4%;
+    padding: 0.6rem 1.4rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #faf6f6;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 9999;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.back-home-btn:hover {
+    background-color: #3d70bd; 
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.walk-content-container {
+    width: 92%;              
+    max-width: 1400px;        
+    margin: 8rem auto 4rem auto; 
+    box-sizing: border-box;
+}
+
+.walk-content-container h1 {
+    font-family: "Anybody";
+    font-weight: 600;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    color: #faf6f6;
+    letter-spacing: -1px;
+}
+
+.walk-content-container p {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-top: 0;
+    margin-bottom: 2.2rem; 
+    color: rgba(250, 246, 246, 0.85); 
+    text-align: left;
+}
+</style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">BACK</a>
+
+    <main class="walk-content-container">
+
+    <h1>My Reflection</h1>
     
     <p>
         I enjoyed this semester much more, largely due to the excellent communication between the students and our professor. I am incredibly grateful to her for keeping me inspired and filling me with enough motivation to sit at my desk long after classes, spending hot summer evenings experimenting with new concepts. She encouraged me to try out things I initially thought were far beyond my skill level or too complex for me to achieve, especially topics I had never even heard of before.
@@ -14,5 +80,34 @@
     <p>
         Due to my ongoing health condition, I unfortunately could not always be physically present at the university, which caused me a great deal of anxiety. However, despite these absences, I never felt as though I was falling behind or being left out. I am deeply thankful to my professor for her profound understanding of my personal health struggles, and I am immensely grateful for her constant support in moments when I feared my efforts might go unnoticed.
     </p>
+
+    <p>
+        Additionally, to officially close this chapter, I wanted to leave a visual collection of 100 photographs from my phone gallery taken throughout the semester on this page. Through these snapshots, I tried to capture the essence of enjoying this time and finding moments of genuine happiness, even during the busiest days—or on those afternoons when I accomplished very little because my new medication left me so exhausted that I could barely keep my eyes open.
+    </p>
+
+    <p>
+        Despite these struggles, I am truly glad that I managed to show up to classes, spend meaningful time with my friends, and even travel a bit. I am deeply grateful for every good thing that happened to me along this journey, and it is on this exact note of gratitude that I choose to end this final paragraph.
+    </p>
+    </main>
+
+    <div id="visualDiary" class="visual-diary-grid"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const diaryContainer = document.getElementById("visualDiary");
+        
+        // Цикл автоматично пробіжиться від 1 до 100
+        for (let i = 1; i <= 100; i++) {
+            const img = document.createElement("img");
+            
+            // Вказуємо шлях до твоїх перейменованих фотографій
+            img.src = `/img_100pics/diary${i}.JPG`; 
+            img.alt = `Semester memory ${i}`;
+            img.loading = "lazy"; // картинки завантажуватимуться лише при скролі, щоб сайт не лагав
+            
+            diaryContainer.appendChild(img);
+        }
+    });
+</script>
 </body>
 </html>
