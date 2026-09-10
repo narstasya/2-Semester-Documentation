@@ -5,55 +5,253 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internet Walk</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; 
+    font-family: "Anybody";
+    color: #faf6f6;
+    overflow-x: hidden;
+    cursor: url('/img/3_internetwalk.png') 16 16, auto; 
+}
+
+body:active, .back-home-btn:active {
+    cursor: url('/img/3_internetwalk_click.png') 16 16, auto;
+}
+
+.back-home-btn {
+    position: fixed;
+    top: 30px;
+    left: 4%;
+    padding: 0.6rem 1.4rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #faf6f6;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 9999;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.back-home-btn:hover {
+    background-color: #3d70bd; 
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.walk-content-container {
+    width: 92%;              
+    max-width: 1400px;        
+    margin: 8rem auto 4rem auto; 
+    box-sizing: border-box;
+}
+
+.walk-content-container h1 {
+    font-family: "Anybody";
+    font-weight: 600;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    color: #faf6f6;
+    letter-spacing: -1px;
+}
+
+.walk-content-container p {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-top: 0;
+    margin-bottom: 2.2rem; 
+    color: rgba(250, 246, 246, 0.85); 
+    text-align: left;
+}
+
+.image-gallery-container {
+    display: flex;
+    gap: 20px; 
+    margin: 3.5rem 0;
+    width: 100%;
+
+     overflow-x: auto;         
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth; 
+    
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+.image-gallery-container img {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fullscreen-image-wrapper {
+    width: 100vw; 
+    margin-left: calc(-50vw + 50%); 
+    margin-right: calc(-50vw + 50%);
+    
+    /*margin-top: 1rem;   */      
+    margin-bottom: 3.5rem;     
+    line-height: 0;
+}
+
+.fullscreen-image-wrapper img {
+    width: 100vw;
+    height: auto !important;
+    object-fit: contain;
+    display:block;
+}
+
+
+.fullwidth-divider {
+    width: 100vw; 
+     margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    
+    border: none;
+    height: 5px;
+    background-color: #c0c2c8; 
+    /*margin-top: 2rem; */
+    margin-bottom: 2rem;
+}
+
+/*-----------------------*/
+
+.gif-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0; /* Відступи зверху та знизу від контенту */
+}
+
+.gif-btn {
+    display: inline-block;
+    line-height: 0; 
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.gif-btn img {
+    width: 120px; 
+    height: auto;             
+    opacity: 0.7;          
+    
+    transition: opacity 0.3s ease; 
+}
+
+.gif-btn:hover img {
+    opacity: 1; 
+}
+.gif-btn:hover {
+    transform: scale(1.03); 
+}
+
+    </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">BACK</a>
 
-    <p>
-        As with any walk, there is always a beginning and an end. We unconsciously build a route in our heads, usually moving from point A to destination B. But is it always that simple? Even if we plan such a direct path, does it ever reflect reality? Mostly not. On our way, we catch sight of other intriguing paths and instinctively turn toward them. Sometimes this detour is temporary, and we eventually return to our main highway; but sometimes, it becomes permanent. We build thick walls, put up chains, and secure them with dozens of locks, making it nearly impossible to escape because you would have to unlock every single door you created, break through the thickest walls, and find your way back. Or perhaps you simply forget. You get distracted from one place to the next, becoming so overwhelmed by your choices that you just stop and end up moving in endless circular loops. 
-    </p>
-    <p>
-        The exact same thing happens on the Internet. There are main roads — the loud ones. Everyone knows them; they are incredibly accessible, free, fast to reach, and easy to consume. But there are also tiny streets, hidden away from the waves of digital "tourists" and known only to their immediate neighbourhood. They might look blank and unattractive at first glance, but once you truly get it, you understand why they are so deeply honoured by the locals.
-    </p>
+    <main class="walk-content-container">
+        <h1>Internet Walk</h1>
+        
+        <p>
+            As with any walk, there is always a beginning and an end. We unconsciously build a route in our heads, usually moving from point A to destination B. But is it always that simple? Even if we plan such a direct path, does it ever reflect reality? Mostly not. On our way, we catch sight of other intriguing paths and instinctively turn toward them. Sometimes this detour is temporary, and we eventually return to our main highway; but sometimes, it becomes permanent. We build thick walls, put up chains, and secure them with dozens of locks, making it nearly impossible to escape because you would have to unlock every single door you created, break through the thickest walls, and find your way back. Or perhaps you simply forget. You get distracted from one place to the next, becoming so overwhelmed by your choices that you just stop and end up moving in endless circular loops. 
+        </p>
 
-    <p>
-        I never thought about it this way until we started digging deeper into this field. I had almost forgotten that other unique search engines exist — ones that have their own distinct style, rules, purpose, and accessibility. It really hit me when I tried using some of them and realised how lazy and demanding I had become after relying so heavily on mainstream platforms like Google. I had come to expect instant results, brief yet essential information, minimal effort in finding exactly what I wanted on a page, and absolute reliability. And I assume the same goes for almost everyone else. This collective behaviour is precisely what led Google to prioritise AI-generated answers first, before you even get a chance to review the actual search results yourself. At first, it seems to make sense, because it requires less time, less effort, and looks entirely dependable.
-    </p>
+    <div class="fullscreen-image-wrapper">
+        <img src="/img_screenwalk/img2-2-2.png" alt="Main project layout showcase">
+    </div>
+    <!--<hr class="fullwidth-divider"> -->
+        
+        <p>
+            The exact same thing happens on the Internet. There are main roads — the loud ones. Everyone knows them; they are incredibly accessible, free, fast to reach, and easy to consume. But there are also tiny streets, hidden away from the waves of digital "tourists" and known only to their immediate neighbourhood. They might look blank and unattractive at first glance, but once you truly get it, you understand why they are so deeply honoured by the locals.
+        </p>
 
-    <p>
-        After that, we investigated how to search for information without relying on traditional search engines. I experimented with Reddit and, more extensively, Are.na. The former was an intriguing experience, but because the right corner of the screen constantly displayed similar threads, I quickly became overwhelmed by choices, experiencing what is known as “choice paralysis”. I found myself stuck, not knowing which topic to discover next, which thread would be more informative, which was more popular, or which one felt more aligned with my Gen Z vibe. Naturally, I wanted the absolute best result with the most value to me, yet I could not determine which single thread was “the one”.
-    </p>
+        <p>
+            I never thought about it this way until we started digging deeper into this field. I had almost forgotten that other unique search engines exist — ones that have their own distinct style, rules, purpose, and accessibility. It really hit me when I tried using some of them and realised how lazy and demanding I had become after relying so heavily on mainstream platforms like Google. I had come to expect instant results, brief yet essential information, minimal effort in finding exactly what I wanted on a page, and absolute reliability. And I assume the same goes for almost everyone else. This collective behaviour is precisely what led Google to prioritise AI-generated answers first, before you even get a chance to review the actual search results yourself. At first, it seems to make sense, because it requires less time, less effort, and looks entirely dependable.
+        </p>
 
-    <p>
-        Personally, I find Reddit most effective when searching for something highly specific that requires deep, community-driven explanations. It serves as an excellent space for discovering concepts, building understanding, and sharing firsthand human experiences. Ultimately, the platform provides a sense of reassurance and community in specific niche areas. 
-    </p>
-    
-    <p>
-        Moving on to Are.na, this platform was completely new to me. While the interface appears remarkably simple, it somehow gives off a modern, fresh aesthetic. Crucially, it is entirely free from advertisements, ensuring the viewport never looks cluttered or overwhelming. It operates under its own distinct logic, and honestly, by the time of writing this paragraph, I have already forgotten a few of its mechanical features. However, it reminded me somewhat of Pinterest, but with a more curated approach. Instead of a loose feed of individual pictures, it presents entire structured channels and repositories centred around specific creative concepts. 
-    </p>
+        <p>
+            After that, we investigated how to search for information without relying on traditional search engines. I experimented with Reddit and, more extensively, Are.na. The former was an intriguing experience, but because the right corner of the screen constantly displayed similar threads, I quickly became overwhelmed by choices, experiencing what is known as “choice paralysis”. I found myself stuck, not knowing which topic to discover next, which thread would be more informative, which was more popular, or which one felt more aligned with my Gen Z vibe. Naturally, I wanted the absolute best result with the most value to me, yet I could not determine which single thread was “the one”.
+        </p>
 
-    <p>
-        When you explore someone's channel, you can view the content using either a standard grid layout or a compact table format. Personally, I deeply appreciate the UI here. The generous use of negative space between images, buttons, and typography allows the brain to easily process separate objects rather than drowning in an endless, algorithmically packed feed.
-    </p>
+        <div class="image-gallery-container">
+            <img src="/img_screenwalk/1.png" alt="Internet walk snapshot 1">
+            <img src="/img_screenwalk/2.png" alt="Internet walk snapshot 2">
+            <img src="/img_screenwalk/3.png" alt="Internet walk snapshot 3">
+            <img src="/img_screenwalk/4.png" alt="Internet walk snapshot 4">
+            <img src="/img_screenwalk/5.png" alt="Internet walk snapshot 5">
 
-    <p>
-        I could write endlessly about how this deliberate layout offers massive advantages over mainstream, algorithm-driven alternative networks, but let us return to the core topic of navigating the web without search engines.
-    </p>
-    
-    <p>
-        It is fascinating to realise how much easier it is to navigate information through images, which perfectly mirrors the way I think — in pictures and symbols. My thoughts move exceptionally fast, and processing ideas strictly through text feels too static for my brain. Moreover, reading dense paragraphs becomes overwhelming when I need to find inspiration quickly.
-    </p>
+        </div>
 
-    <p>
-        In this regard, Are.na serves as an excellent alternative to AI for creative research. Instead of letting an algorithm do the heavy lifting, you actively participate in the discovery process and retain complete control over your search. It differs fundamentally from Pinterest, which merely feeds you similar content based on passive triggers. On Are.na, you intentionally choose what to focus on and determine which contexts to expand while seeking out a specific reference. I would genuinely say this platform operates much like our own brains.
-    </p>
+        <p>
+            Personally, I find Reddit most effective when searching for something highly specific that requires deep, community-driven explanations. It serves as an excellent space for discovering concepts, building understanding, and sharing firsthand human experiences. Ultimately, the platform provides a sense of reassurance and community in specific niche areas. 
+        </p>
+        
+        <p>
+            Moving on to Are.na, this platform was completely new to me. While the interface appears remarkably simple, it somehow gives off a modern, fresh aesthetic. Crucially, it is entirely free from advertisements, ensuring the viewport never looks cluttered or overwhelming. It operates under its own distinct logic, and honestly, by the time of writing this paragraph, I have already forgotten a few of its mechanical features. However, it reminded me somewhat of Pinterest, but with a more curated approach. Instead of a loose feed of individual pictures, it presents entire structured channels and repositories centred around specific creative concepts. 
+        </p>
 
-    <p>
-        Our core assignment was to document our own "Internet Walk," a practice better described as Screenwalking. During this process, you literally discover new spaces, navigate deep links, uncover hidden objects, and even stumble upon interactive soundscapes or spontaneous games. In a Screenwalk, you are the architect of your own path. You choose where the journey begins, where it concludes, how long you linger in a specific corridor, and what you simply ignore as irrelevant background noise.
-    </p>
+        <p>
+            When you explore someone's channel, you can view the content using either a standard grid layout or a compact table format. Personally, I deeply appreciate the UI here. The generous use of negative space between images, buttons, and typography allows the brain to easily process separate objects rather than drowning in an endless, algorithmically packed feed.
+        </p>
 
-    <p>
-        In my personal Screenwalk project, I intentionally embedded unexpected interactions and intertwined paths to conclude the digital journey. Who knows, perhaps there is no absolute end to it, or maybe it holds more than one destination point?
-    </p>
+        <div class="image-gallery-container">
+            <img src="/img_screenwalk/6.png" alt="Internet walk snapshot 6">
+            <img src="/img_screenwalk/7.png" alt="Internet walk snapshot 7">
+            <img src="/img_screenwalk/8.png" alt="Internet walk snapshot 8">
+            <img src="/img_screenwalk/9.png" alt="Internet walk snapshot 9">
+            <img src="/img_screenwalk/10.png" alt="Internet walk snapshot 10">
+            <img src="/img_screenwalk/11.png" alt="Internet walk snapshot 11">
+            <img src="/img_screenwalk/12.png" alt="Internet walk snapshot 12">
+            <img src="/img_screenwalk/13.png" alt="Internet walk snapshot 13">
+            <img src="/img_screenwalk/14.png" alt="Internet walk snapshot 14">
+            <img src="/img_screenwalk/15.png" alt="Internet walk snapshot 15">
+            <img src="/img_screenwalk/16.png" alt="Internet walk snapshot 16">
+            <img src="/img_screenwalk/17.png" alt="Internet walk snapshot 17">
+            <img src="/img_screenwalk/18.png" alt="Internet walk snapshot 18">
+            <img src="/img_screenwalk/19.png" alt="Internet walk snapshot 19">
+
+        </div>
+
+
+        <p>
+            I could write endlessly about how this deliberate layout offers massive advantages over mainstream, algorithm-driven alternative networks, but let us return to the core topic of navigating the web without search engines.
+        </p>
+        
+        <p>
+            It is fascinating to realise how much easier it is to navigate information through images, which perfectly mirrors the way I think — in pictures and symbols. My thoughts move exceptionally fast, and processing ideas strictly through text feels too static for my brain. Moreover, reading dense paragraphs becomes overwhelming when I need to find inspiration quickly.
+        </p>
+
+        <p>
+            In this regard, Are.na serves as an excellent alternative to AI for creative research. Instead of letting an algorithm do the heavy lifting, you actively participate in the discovery process and retain complete control over your search. It differs fundamentally from Pinterest, which merely feeds you similar content based on passive triggers. On Are.na, you intentionally choose what to focus on and determine which contexts to expand while seeking out a specific reference. I would genuinely say this platform operates much like our own brains.
+        </p>
+
+    <hr class="fullwidth-divider">
+
+        <p>
+            Our core assignment was to document our own "Internet Walk," a practice better described as Screenwalking. During this process, you literally discover new spaces, navigate deep links, uncover hidden objects, and even stumble upon interactive soundscapes or spontaneous games. In a Screenwalk, you are the architect of your own path. You choose where the journey begins, where it concludes, how long you linger in a specific corridor, and what you simply ignore as irrelevant background noise.
+        </p>
+
+        <p>
+            In my personal Screenwalk project, I intentionally embedded unexpected interactions and intertwined paths to conclude the digital journey. Who knows, perhaps there is no absolute end to it, or maybe it holds more than one destination point?
+        </p>
+
+<div class="gif-button-wrapper">
+    <a href="https://narstasya.github.io/screenwalk_web/" class="gif-btn">
+        <img src="/img_screenwalk/gif.gif" alt="Interactive Button">
+    </a>
+</div>
+
+    </main>
+
+    <footer style="margin-top: 80px; text-align: center; width: 100%; padding: 3rem 0; font-family: sans-serif; color: rgba(155, 214, 223, 0.5);">
+        <p> 2026 Internet Walk | Documentation</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

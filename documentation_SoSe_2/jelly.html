@@ -21,41 +21,37 @@
             cursor: url('/img/2_jelly_click.png') 16 16, auto;
         }
 
-        /* 2. ГОЛОВНИЙ ЗОВНІШНІЙ КОНТУР (ВІДСТУП 30px ВІД КРАЇВ ЕКРАНА) */
         .wireframe-contour {
             position: absolute;
             top: 10px;
             left: 10px;
             right: 10px;
             bottom: 10px;
-            border: 10px solid #eeb6ff; /* Твоя фірмова бруталістська шоколадна рамка */
+            border: 10px solid #eeb6ff; 
             box-sizing: border-box !important;
-            pointer-events: none; /* Щоб рамка не заважала клікати по кнопках */
+            pointer-events: none;
             z-index: 10;
         }
 
-        /* 3. ВЕКТОРНА СІТКА ДЛЯ ІДЕАЛЬНИХ ЦЕНТРОВАНИХ ТА ДІАГОНАЛЬНИХ ЛІНІЙ */
         .grid-svg {
             position: absolute;
             top: 20px;
             left: 20px;
-            width: calc(100% - 40px);  /* Рівно по внутрішньому контуру */
+            width: calc(100% - 40px);  
             height: calc(100% - 40px);
             pointer-events: none;
             z-index: 5;
         }
 
-        /* Стиль самих ліній креслення */
         .grid-svg line {
-            stroke: #eeb6ff;      /* Шоколадний колір для ліній */
-            stroke-width: 10;      /* Тонкі акуратні лінії креслення */
+            stroke: #eeb6ff;
+            stroke-width: 10;
             shape-rendering: crispEdges;
         }
 
-        /* 4. КНОПКА BACK (Зберігаємо UX) */
         .back-home-btn {
             position: fixed;
-            top: 45px; /* Трохи опустили, щоб вона красиво стала всередині рамки */
+            top: 45px; 
             left: 45px;
             padding: 0.6rem 1.2rem;
             background-color: #eeb6ff;
@@ -73,37 +69,33 @@
             color: white;
         }
 
-                /* 1. НАЛАШТУВАННЯ ГОЛОВНОЇ СІТКИ (Grid Container) */
+                /* Grid Container */
         .content-grid {
             position: absolute;
-            /* 🔑 Ставимо ті самі 20px відступів, щоб сітка ідеально наклалася на лінії */
             top: 20px;
             left: 20px;
             width: calc(100% - 40px);
             height: calc(100% - 40px);
-            z-index: 20; /* Контент має бути ПОВЕРХ ліній, щоб клікалися посилання */
+            z-index: 20; 
             
-            /* Магія CSS Grid: ділимо екран на 2 однакові колонки і 2 однакові рядки */
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             box-sizing: border-box;
         }
 
-        /* 2. СТИЛЬ ДЛЯ КОЖНОЇ ОКРЕМОЇ КОМІРКИ (КВАДРАНТА) */
         .grid-cell {
-            padding: 30px; /* Внутрішні відступи для тексту, щоб він не тулився до ліній */
+            padding: 30px; 
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Центрує весь контент усередині комірки по вертикалі */
-            align-items: center;     /* Центрує по горизонталі (якщо хочеш по лівому краю — зміни на flex-start) */
+            justify-content: center; 
+            align-items: center;
             text-align: center;
             font-family: 'Anybody';
-            color: #4c6b7c;          /* Твій колір тексту з кнопки Back */
+            color: #4c6b7c;
         }
 
-        /* Стилі для красивих бруталістських заголовків усередині таблиць */
         .grid-cell h3 {
             margin: 0 0 10px 0;
             font-size: 1.4rem;
@@ -115,19 +107,19 @@
             margin: 0;
             font-size: 0.95rem;
             line-height: 1.4;
-            max-width: 300px; /* Обмежуємо ширину тексту, щоб він виглядав охайно журнально */
+            max-width: 300px; 
         }
 
         .cell-top-left {
-            align-items: flex-end;   /* Примусово зміщує заголовок і параграф до правої межі блоку */
-            text-align: right;       /* Вирівнює кожен рядок тексту по правій стороні */
-            padding-right: 40px;     /* Трохи збільшуємо відступ справа, щоб букви не торкалися товстої синьої лінії */
+            align-items: flex-end;   
+            text-align: right;       
+            padding-right: 40px;  
         }
 
         .cell-top-right {
-            padding: 15px;           /* Зменшуємо педінг, щоб текст підходив ближче до ліній */
-            align-items: stretch;    /* Розтягує контент на всю ширину комірки */
-            text-align: justify;     /* Робить текст красивим рівним блоком від краю до краю (або зміни на left) */
+            padding: 15px;          
+            align-items: stretch; 
+            text-align: justify; 
         }
 
         .cell-top-right p {
@@ -142,27 +134,24 @@
         }
 
         .cell-bottom-right {
-            justify-content: flex-start; /* Зміщує контент у самий верх свого квадрата */
-            align-items: flex-start;     /* Притискає контент до лівого краю свого квадрата */
-            text-align: left;            /* Вирівнює текст по лівій стороні */
-            padding-top: 25px;           /* Невеличкий акуратний відступ від верхньої синьої лінії */
-            padding-left: 25px;          /* Невеличкий відступ від центральної вертикальної лінії */
+            justify-content: flex-start; 
+            align-items: flex-start;     
+            text-align: left;            
+            padding-top: 25px;           
+            padding-left: 25px;          
         }
 
         /*  --------style for triggers (popup) ------------------------- */
 
-                /* 1. СТИЛЬ ДЛЯ ХУДОЖНІХ СЛІВ-ТРИГЕРІВ */
         .clickable-trigger {
             cursor: pointer !important;
             transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease, filter 0.2s ease;
         }
-        /* При наведенні текст м'яко збільшується та підсвічується неоном */
         .clickable-trigger:hover {
             transform: scale(1.05);
             color: #c79bdf !important; 
         }
 
-        /* 2. СУЧАСНИЙ ОВЕРЛЕЙ (ТЕМНО-СИНІЙ З РОЗМИТТЯМ) */
         .popup-overlay {
             display: none; 
             position: fixed;
@@ -171,50 +160,47 @@
             width: 100vw;
             height: 100vh;
            /* background-color: rgba(10, 25, 47, 0.75); /* Глибокий темно-синій напівпрозорий фон */
-            backdrop-filter: blur(1px); /* Ефектне матове розмиття фону за попапом */
+            backdrop-filter: blur(1px); 
             z-index: 10000; 
             justify-content: center;
             align-items: center;
         }
 
-        /* 3. ЗГЛАДЖЕНЕ СУЧАСНЕ ВІКНО ГАЛЕРЕЇ (КВАДРАТ) */
         .popup-box {
             position: relative;
             width: 460px;       
             height: 460px;
-            background: #0e1e38; /* М'який темно-синій колір картки */
+            background: #0e1e38; 
             border: 10px solid rgb(242, 153, 238); 
-            /*border-radius: 24px; /* Красиві закруглені згладжені кути */
-            /*box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(61, 112, 189, 0.15); /* М'яке неонове свічення */
+            /*border-radius: 24px;  */
+            /*box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(61, 112, 189, 0.15);  */
             padding: 2.5rem 2rem 1.5rem 2rem;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
         }
 
-        /* Заголовок усередині попапу */
         #popupTitle {
             margin: 0 0 1.2rem 0;
             font-family: "Anybody";
             font-weight: 600;
-            /*color: #faf6f6; /* Чистий світлий колір */
+            /*color: #faf6f6; */
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             text-align: center;
         }
 
-        /* 4. ЗГЛАДЖЕНА КНОПКА-ХРЕСТИК (КРУГЛА) */
         .popup-close-btn {
             position: absolute;
             top: 20px; 
             right: 20px;
             width: 36px;
             height: 36px;
-            background-color: rgba(255, 255, 255, 0.08); /* Акуратна скляна підкладка */
+            background-color: rgba(255, 255, 255, 0.08); 
             color: #faf6f6; 
             border: 1px solid rgba(255, 255, 255, 0.15);
-            /*border-radius: 50%; /* Ідеально кругла кнопка */
+            /*border-radius: 50%; */
             font-size: 1.1rem;
             cursor: pointer;
             display: flex;
@@ -224,19 +210,18 @@
             z-index: 10100;
         }
         .popup-close-btn:hover {
-            background-color: #3d70bd; /* Заливається твоїм блакитно-синім */
-            transform: rotate(90deg);  /* Ефектно прокручується при наведенні */
+            background-color: #3d70bd; 
+            transform: rotate(90deg);  
             border-color: transparent;
         }
 
-        /* 5. ЗГЛАДЖЕНИЙ КОНТЕЙНЕР ДЛЯ ФОТОГРАФІЙ */
         .popup-slider-container {
             flex-grow: 1;
             display: flex;
             overflow-x: auto; 
             scroll-snap-type: x mandatory;
-            /*border-radius: 16px; /* Згладжуємо кути самої стрічки з фото */
-            background: #0a192f; /* Глибокий темний фон під фото */
+            /*border-radius: 16px;  */
+            background: #0a192f; 
         }
         
         .popup-slider-container img {
@@ -245,7 +230,7 @@
             object-fit: contain; 
             flex-shrink: 0;
             scroll-snap-align: start;
-            padding: 10px; /* Невеличкий відступ, щоб фото красиво плавало всередині */
+            padding: 10px; 
             box-sizing: border-box;
         }
 
@@ -256,7 +241,7 @@
         .popup-footer {
             font-family: "Anybody";
             font-size: 0.75rem;
-            color: rgba(155, 214, 223, 0.5); /* Текст-підказка стає приглушено-блакитним */
+            color: rgba(155, 214, 223, 0.5); 
             text-align: center;
             margin-top: 12px;
             letter-spacing: 0.5px;
@@ -267,7 +252,7 @@
 </head>
 
 <body>
-    <a href="index.html" class="back-home-btn">← BACK</a>
+    <a href="index.html" class="back-home-btn">BACK</a>
 
     <div class="wireframe-contour"></div>
 
@@ -322,8 +307,6 @@
     </div>
 
         <script>
-        // 1. ОПИСУЄМО МАСИВИ ЗОБРАЖЕНЬ ДЛЯ КОЖНОЇ ГАЛЕРЕЇ
-        // Заміни назви файлів у лапках на свої реальні картинки з папки images!
         const galleries = {
             jelly: {
                 title: "Jelly Workshop Gallery",
@@ -345,7 +328,6 @@
 
         };
 
-        // 2. ЛОГІКА ДЛЯ КЛІКУ ТА ВІДКРИТТЯ ПОПАПУ
         document.addEventListener("DOMContentLoaded", () => {
             const triggers = document.querySelectorAll(".clickable-trigger");
             
@@ -355,21 +337,17 @@
                     const data = galleries[galleryKey];
                     
                     if (data) {
-                        // Міняємо текст заголовка
                         document.getElementById("popupTitle").innerText = data.title;
                         
-                        // Очищаємо старі картинки та генеруємо нові
                         const slider = document.getElementById("popupSlider");
                         slider.innerHTML = "";
                         
                         data.images.forEach(imgUrl => {
                             const img = document.createElement("img");
                             img.src = imgUrl;img.alt = "Gallery image";slider.appendChild(img);});
-                            // Показуємо попап на екрані (вмикаємо флекс)
                             document.getElementById("galleryPopup").style.display = "flex";
-                            // Скидаємо скрол слайдера на початок
                             slider.scrollLeft = 0;}});});});
-                            // 3. ФУНКЦІЯ ДЛЯ ЗАКРИТТЯ ПОПАПУ ПО КНОПЦІ ХРЕСТИКА
+                            
                             function closePopup() {document.getElementById("galleryPopup").style.display = "none";}
 
         </script>
