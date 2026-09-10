@@ -24,11 +24,11 @@ body {
     background-color: #0d0e15;
     color: white;
     font-family: "Anybody";
-    cursor: url('/img/1_mouse.png') 16 16, auto; 
+    cursor: url('img/1_mouse.png') 16 16, auto; 
 }
 
 body:active, .back-home-btn:active {
-    cursor: url('/img/1_mouse_click.png') 16 16, auto;
+    cursor: url('img/1_mouse_click.png') 16 16, auto;
 }
 
 /* Artificial page length for scrollin */

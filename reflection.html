@@ -13,11 +13,11 @@ body, html {
     font-family: "Anybody";
     color: #faf6f6;
     overflow-x: hidden;
-    cursor: url('/img/6_reflection.png') 16 16, auto; 
+    cursor: url('img/6_reflection.png') 16 16, auto; 
 }
 
 body:active, .back-home-btn:active {
-    cursor: url('/img/6_reflection_click.png') 16 16, auto;
+    cursor: url('img/6_reflection_click.png') 16 16, auto;
 }
 
 .back-home-btn {
@@ -151,7 +151,7 @@ body:active, .back-home-btn:active {
             const img = document.createElement("img");
             
             // Вказуємо шлях до твоїх перейменованих фотографій
-            img.src = `/img_100pics/diary${i}.jpeg`; 
+            img.src = `img_100pics/diary${i}.jpeg`; 
             img.alt = `Semester memory ${i}`;
             img.loading = "lazy"; // картинки завантажуватимуться лише при скролі, щоб сайт не лагав
             
