@@ -44,7 +44,7 @@ body:active, .back-home-btn:active {
     transform: translate(-50%, -50%);
     font-size: 28px;
     text-align: center;
-    color: rgba(189, 217, 255, 0.787);
+    color: #a5c0e9;
     opacity: 1;
     z-index: 100;
     pointer-events: none;
@@ -55,7 +55,7 @@ body:active, .back-home-btn:active {
 }
 
 @keyframes hint-pulse {
-    0%, 100% { opacity: 0.45; transform: translateY(0); }
+    0%, 100% { opacity: 0.2; transform: translateY(0); }
     50%      { opacity: 1;    transform: translateY(50px); }
 }
 
@@ -69,23 +69,18 @@ body:active, .back-home-btn:active {
   filter: url('#gooey');
 }
 
-/* Центральний хаб: усі кулі позиціонуються відносно центру екрана */
 .sphere-hub {
   position: relative;
   overflow: visible !important;
 }
 
-/* Спільний стиль і розмір куль (~158% екрана — боки за межами) */
 .sphere {
   position: absolute;
-  top: 50%;      /* 🔑 базова точка — центр контейнера по вертикалі */
+  top: 50%;    
   left: 50%;
   width: 140px;  
   height: 140px;
   border-radius: 50%;
-  
-  /* Плавний градієнт, який не створює різких меж */
-
   background: #1f70fd;
 }
 
@@ -108,7 +103,6 @@ body:active, .back-home-btn:active {
   min-height: 100vh;
 }
 
-/* --- ШАР 1: рідина (фільтр тільки тут) --- */
 .gooey-blobs {
   position: absolute;
   inset: 0;
@@ -129,7 +123,6 @@ body:active, .back-home-btn:active {
 
 .blob--yellow { background: #a4bd33;}
 
-/* --- ШАР 2: справжні кнопки, текст, клік --- */
 .gooey-links {
   position: absolute;
   inset: 0;
