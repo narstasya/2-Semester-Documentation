@@ -5,8 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; 
+    font-family: "Anybody";
+    color: #faf6f6;
+    overflow-x: hidden;
+    cursor: url('/img/4_research.png') 16 16, auto; 
+}
+
+body:active, .back-home-btn:active {
+    cursor: url('/img/4_research_click.png') 16 16, auto;
+}
+
+.back-home-btn {
+    position: fixed;
+    top: 30px;
+    left: 4%;
+    padding: 0.6rem 1.4rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #faf6f6;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 9999;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.back-home-btn:hover {
+    background-color: #3d70bd; 
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.walk-content-container {
+    width: 92%;              
+    max-width: 1400px;        
+    margin: 8rem auto 4rem auto; 
+    box-sizing: border-box;
+}
+
+.walk-content-container h1 {
+    font-family: "Anybody";
+    font-weight: 600;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    color: #faf6f6;
+    letter-spacing: -1px;
+}
+
+.walk-content-container p {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-top: 0;
+    margin-bottom: 2.2rem; 
+    color: rgba(250, 246, 246, 0.85); 
+    text-align: left;
+}
+</style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn">BACK</a>
+
+<main class="walk-content-container">
+
+    <h1>Research</h1>
 
     <p>
         During our city tour, as we all sat in a circle on the warm grass of a bright May day, we shared our initial concepts for the Audiowalk topic. Hearing that several classmates had decided to dive into the historical aspects of Braunschweig made me reflect on alternative narratives. I realised that other, darker layers coexist in the shadows of the city's vibrant streets and tourist landmarks. I became intrigued by locations that look perfectly welcoming and peaceful during the day, yet transform into their complete opposite once night falls.
@@ -27,6 +93,7 @@
     <p>
         Understanding that this location's official history is practically "clean," I decided to document the area on camera during the late evening. Before writing the final script, I had to physically walk through the passage to actively recall the emotions and discomfort I felt when those disturbing situations originally occurred. This immersion was exactly what inspired me to draft the narrative text that will serve as the voiceover for my upcoming website interface.
     </p>
+</main>
     <script src="script.js"></script>
 </body>
 </html>
